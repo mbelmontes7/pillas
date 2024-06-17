@@ -7,6 +7,7 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Ponte Pillas",
   description: "Una app donde puedes usar AI a que te ayude con tus apuntes.",
+  //added the favicons here
   icons: {
     icon: [
       {
