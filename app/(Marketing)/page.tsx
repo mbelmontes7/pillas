@@ -1,9 +1,6 @@
 import { Button } from "@/components/ui/button";
 
-export default function Home() {
-  return (
-    <div>
-      <Button />
-    </div>
-  );
-}
+const MarketingPage = () => {
+  return <div></div>;
+};
+export default MarketingPage;
