@@ -6,7 +6,21 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Ponte Pillas",
-  description: "Una app donde puedes usar AI a que te ayude con tus apuntes",
+  description: "Una app donde puedes usar AI a que te ayude con tus apuntes.",
+  icons: {
+    icon: [
+      {
+        media: "(prefers-color-scheme:light",
+        url: "/lightlogo.svg",
+        href: "/lightlogo.svg",
+      },
+      {
+        media: "(prefers-color-scheme:dark",
+        url: "/darklogo.svg",
+        href: "/darklogo.svg",
+      },
+    ],
+  },
 };
 
 export default function RootLayout({
