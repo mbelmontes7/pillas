@@ -8,7 +8,7 @@ export const Heroes = () => {
         <div className="relative w-[300px] h-[300px] sm:w-[350px] sm:h-[350px] md:h-[400px] md:w-[400px]">
           <Image
             src="/documents.png" // Path to the image for light mode
-            fill
+            fill //By addinf the fill  attribute would adapt to the parent container
             className="object-contain dark:hidden" // Show in light mode, hide in dark mode
             alt="Documents"
           />
