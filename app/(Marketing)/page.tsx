@@ -1,6 +1,6 @@
 import { Heading } from "./_components/Heading";
 import { Heroes } from "./_components/heroes";
-import { Footer } from "./_components/Footer";
+import Footer from "./_components/Footer";
 
 const MarketingPage = () => {
   return (

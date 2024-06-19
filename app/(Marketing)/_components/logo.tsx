@@ -1,0 +1,32 @@
+import { cn } from "@/lib/utils";
+import { Poppins } from "next/font/google";
+import Image from "next/image";
+
+const font = Poppins({
+  subsets: ["latin"],
+  weight: ["400", "600"],
+});
+
+const Logo = () => {
+  return (
+    <div className="hidden md:flex items-center gap-x-0 h-7 w-3">
+      <Image
+        src="/logo.svg"
+        height="20"
+        width="40"
+        alt="logo"
+        className="dark:hidden"
+      />
+      <Image
+        src="/logo-dark.svg"
+        height="40"
+        width="40"
+        alt="logo"
+        className="hidden dark:block"
+      />
+      <p className={cn("font-semibold", font.className)}>P</p>
+    </div>
+  );
+};
+
+export default Logo;
