@@ -5,6 +5,8 @@ const Footer = () => {
   return (
     <div className="flex items-center w-full p-1 bg-background dark:bg-[#1f1f1f] z-50 ">
       <Logo />
+      {/* //.md:ml-auto: On medium screens and above, apply margin-left: auto;
+      This pushes the element to the rightmost part of the flex container. */}
       <div
         className="md:ml-auto w-full justify-between md:justify-end lg:justify-items-end
       flex items-center gap-x-2 text-muted-foreground "
