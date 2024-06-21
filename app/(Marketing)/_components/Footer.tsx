@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 
 const Footer = () => {
   return (
+    //this add the w- tho the background
     <div className="flex items-center w-full p-1 bg-background dark:bg-[#1f1f1f] z-50 ">
       <Logo />
       {/* //.md:ml-auto: On medium screens and above, apply margin-left: auto;
