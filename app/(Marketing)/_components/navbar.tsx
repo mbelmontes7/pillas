@@ -7,7 +7,16 @@ import { cn } from "@/lib/utils";
 export const Navbar = () => {
   const scrolled = useScrollTop();
 
-  //return something here
-  return <div className={cn()}>navbar</div>;
+  //Additional classes applied conditionally based on the scrolled state
+  return (
+    <div
+      className={cn(
+        "z-50 bg-background dark:bg-[#1f1f1f] fixed top-0 flex items-center w-full p-6", // Initial classes for styling
+        scrolled && "border-b shadow-sm",
+      )}
+    >
+      navbar
+    </div>
+  );
 };
 export default Navbar;
