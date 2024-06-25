@@ -1,5 +1,4 @@
 "use client";
-
 import { useScrollTop } from "@/hooks/use-scroll-top";
 import { cn } from "@/lib/utils";
 import Logo from "./logo";
@@ -17,7 +16,10 @@ export const Navbar = () => {
       )}
     >
       <Logo />
-      navbar
+      <div
+        className="md:ml-auto md:justify-end justify-betweenw-full flex 
+        items-center gap-x-2"
+      ></div>
     </div>
   );
 };
