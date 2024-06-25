@@ -2,6 +2,7 @@
 
 import { useScrollTop } from "@/hooks/use-scroll-top";
 import { cn } from "@/lib/utils";
+import Logo from "./logo";
 
 // This is going to be my navbar component where it is going to be on top of the page
 export const Navbar = () => {
@@ -15,6 +16,7 @@ export const Navbar = () => {
         scrolled && "border-b shadow-sm",
       )}
     >
+      <Logo />
       navbar
     </div>
   );
