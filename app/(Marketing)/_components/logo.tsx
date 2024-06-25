@@ -10,6 +10,7 @@ const font = Poppins({
 
 const Logo = () => {
   return (
+    //Going to comment this logo and in case I need it I can always come back to undo
     <div className="hidden md:flex items-center gap-x-0 h-7 w-3">
       {/* <Image
         src="/logo.svg"
