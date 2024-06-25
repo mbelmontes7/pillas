@@ -17,9 +17,11 @@ export const Navbar = () => {
     >
       <Logo />
       <div
+        //here is the combintation of the class for the navbar
         className="md:ml-auto md:justify-end justify-betweenw-full flex 
         items-center gap-x-2"
       ></div>
+      login
     </div>
   );
 };
