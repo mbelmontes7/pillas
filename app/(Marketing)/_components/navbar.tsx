@@ -2,6 +2,7 @@
 import { useScrollTop } from "@/hooks/use-scroll-top";
 import { cn } from "@/lib/utils";
 import Logo from "./logo";
+import { ModeToggle } from "@/components/ui/mode-toggle";
 
 // This is going to be my navbar component where it is going to be on top of the page
 export const Navbar = () => {
@@ -21,7 +22,7 @@ export const Navbar = () => {
         className="md:ml-auto md:justify-end justify-betweenw-full flex 
         items-center gap-x-2"
       ></div>
-      login
+      <ModeToggle />
     </div>
   );
 };
