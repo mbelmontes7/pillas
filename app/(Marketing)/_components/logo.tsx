@@ -1,7 +1,7 @@
 //this is a library to not overwrite css
 import { cn } from "@/lib/utils";
 import { Poppins } from "next/font/google";
-import Image from "next/image";
+// import Image from "next/image";
 
 const font = Poppins({
   subsets: ["latin"],
@@ -26,7 +26,7 @@ const Logo = () => {
         alt="logo"
         className="hidden dark:block"
       /> */}
-      <p className={cn("font-semibold ", font.className)}>PP</p>
+      <p className={cn("font-semibold ", font.className)}></p>
     </div>
   );
 };
