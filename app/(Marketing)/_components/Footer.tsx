@@ -3,16 +3,9 @@ import { Button } from "@/components/ui/button";
 
 const Footer = () => {
   return (
-    //this add the w- tho the background
-    <div className="flex items-center w-full p-1 bg-background dark:bg-[#252525] z-50 ">
+    <div className="flex items-center w-full p-4 bg-background dark:bg-[#252525] z-50">
       <Logo />
-      {/* //.md:ml-auto: On medium screens and above, apply margin-left: auto;
-      This pushes the element to the rightmost part of the flex container. */}
-      <div
-        className="md:ml-auto w-full justify-between md:justify-end lg:justify-items-end
-      flex items-center gap-x-2 text-muted-foreground "
-      >
-        {/* //variant para que no se mira  */}
+      <div className="md:ml-auto w-full justify-between md:justify-end flex items-center gap-x-2 text-muted-foreground">
         <Button variant="ghost" size="sm">
           Privacy Policy
         </Button>

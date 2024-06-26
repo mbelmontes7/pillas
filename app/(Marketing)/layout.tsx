@@ -1,10 +1,11 @@
 import Navbar from "./_components/navbar";
-
+import Footer from "./_components/Footer";
 const MarketingLayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className="h-full dark:bg-[#252525]">
+    <div className="min-h-screen flex flex-col dark:bg-[#252525]">
       <Navbar />
-      <main className="h-full pt-40">{children}</main>
+      <main className="flex-grow pt-40">{children}</main>
+      <Footer /> {/* Ensure the footer is placed here to be at the bottom */}
     </div>
   );
 };
