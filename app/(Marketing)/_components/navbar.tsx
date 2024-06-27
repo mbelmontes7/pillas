@@ -7,7 +7,7 @@ import { ModeToggle } from "@/components/ui/mode-toggle";
 import { useConvexAuth } from "convex/react";
 import { SignInButton, UserButton } from "@clerk/clerk-react";
 import { Button } from "@/components/ui/button";
-// import { Spinner } from "@/components/spinner";
+import { Spinner } from "@/components/ui/spinner";
 import Link from "next/link";
 
 const Navbar = () => {
@@ -26,7 +26,7 @@ const Navbar = () => {
         items-center gap-x-2"
       >
         <ModeToggle />
-        {/* {isLoading && <Spinner />} */}
+        {isLoading && <Spinner />}
         {!isAuthenticated && !isLoading && (
           <>
             <SignInButton mode="modal">
