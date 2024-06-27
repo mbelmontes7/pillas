@@ -42,9 +42,10 @@ const Navbar = () => {
 
         {isAuthenticated && !isLoading && (
           <>
-            <Button variant="ghost" size="sm" asChild>
-              <Link href="/documents">Enter Pp</Link>
-            </Button>
+            {/* uncomment only if I need it but I dont think i do  */}
+            {/* <Button variant="ghost" size="sm" asChild>
+              <Link href="/documents">Entra a PP</Link>
+            </Button> */}
             <UserButton afterSignOutUrl="/" />
           </>
         )}
