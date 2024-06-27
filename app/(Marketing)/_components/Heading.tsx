@@ -18,7 +18,12 @@ export const Heading = () => {
       </h3>
       {/* //added a spinner here and logic for the auth to the user to get into the app then import on top also 
      wrap the button to the auth where the logic is is to render to acually enter to pp  */}
-      {isLoading && <Spinner size="lg" />}
+      {isLoading && (
+        //wrap this spinner on a div to give it a class and import the css on the middle of the page
+        <div className="w-full flex items-center justify-center">
+          <Spinner size="lg" />
+        </div>
+      )}
       {isAuthenticated && !isLoading && (
         <Button>
           Entra a Pp
