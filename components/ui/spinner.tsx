@@ -26,10 +26,9 @@ const spinnerVariants = cva("text-muted-foreground animate-spin", {
     size: "default", // Setting the default size variant to "default".
   },
 });
-
-interface SpinnerProps extends VariantProps<typeof spinnerVariants> {}
 // Defining an interface SpinnerProps that extends VariantProps generated from spinnerVariants.
 // This interface ensures that only valid size variants can be passed as props to the Spinner component.
+interface SpinnerProps extends VariantProps<typeof spinnerVariants> {}
 
 export const Spinner = ({ size }: SpinnerProps) => {
   // Exporting a functional component named Spinner.
