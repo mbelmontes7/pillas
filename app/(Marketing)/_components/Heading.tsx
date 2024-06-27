@@ -1,8 +1,10 @@
 "use client";
-import { Button } from "@/components/ui/button";
-import { Spinner } from "@/components/ui/spinner";
+
 import { useConvexAuth } from "convex/react";
 import { ArrowRight } from "lucide-react";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { Spinner } from "@/components/ui/spinner";
 export const Heading = () => {
   const { isAuthenticated, isLoading } = useConvexAuth();
 
@@ -25,9 +27,13 @@ export const Heading = () => {
         </div>
       )}
       {isAuthenticated && !isLoading && (
-        <Button>
-          Entra a Pp
-          <ArrowRight className="h-4 w-4 ml-2 " />
+        <Button asChild>
+          {/* Wraps the Link component inside the Button component to style it like a button */}
+          <Link href={"/documents"}>
+            Entra a Pp
+            {/* Adds an arrow icon next to the text */}
+            <ArrowRight className="h-4 w-4 ml-2 " />
+          </Link>
         </Button>
       )}
     </div>
