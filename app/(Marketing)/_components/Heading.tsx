@@ -5,6 +5,7 @@ import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Spinner } from "@/components/ui/spinner";
+import { SignInButton } from "@clerk/clerk-react";
 export const Heading = () => {
   const { isAuthenticated, isLoading } = useConvexAuth();
 
@@ -35,6 +36,18 @@ export const Heading = () => {
             <ArrowRight className="h-4 w-4 ml-2 " />
           </Link>
         </Button>
+      )}
+      {!isAuthenticated && !isLoading && (
+        // If the user is not authenticated and the page is not loading, show the sign-in button.
+        <SignInButton mode="modal">
+          {/* The SignInButton component is used to trigger a modal sign-in form. */}
+          <Button>
+            {/* The Button component styles the "Get Pilas for free" text and icon. */}
+            Get Pilas for free
+            {/* ArrowRight icon is added next to the text with specific styling for size and margin. */}
+            <ArrowRight className="h-4 w-4 ml-2" />
+          </Button>
+        </SignInButton>
       )}
     </div>
   );
