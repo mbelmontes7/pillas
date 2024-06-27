@@ -2,6 +2,7 @@
 // import { useScrollTop } from "@/app/hooks/use-scroll-top";
 import { cn } from "@/lib/utils";
 import Logo from "./logo";
+//this is from the library on the dark/light mode
 import { ModeToggle } from "@/components/ui/mode-toggle";
 import { useConvexAuth } from "convex/react";
 import { SignInButton, UserButton } from "@clerk/clerk-react";
@@ -38,6 +39,7 @@ const Navbar = () => {
             </SignInButton>
           </>
         )}
+
         {isAuthenticated && !isLoading && (
           <>
             <Button variant="ghost" size="sm" asChild>
