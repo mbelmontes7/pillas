@@ -1,29 +1,54 @@
 "use client";
-import { useScrollTop } from "@/hooks/use-scroll-top";
+// import { useScrollTop } from "@/app/hooks/use-scroll-top";
 import { cn } from "@/lib/utils";
 import Logo from "./logo";
 import { ModeToggle } from "@/components/ui/mode-toggle";
+import { useConvexAuth } from "convex/react";
+import { SignInButton, UserButton } from "@clerk/clerk-react";
+import { Button } from "@/components/ui/button";
+// import { Spinner } from "@/components/spinner";
+import Link from "next/link";
 
-// This is going to be my navbar component where it is going to be on top of the page
-export const Navbar = () => {
-  const scrolled = useScrollTop();
-
-  //Additional classes applied conditionally based on the scrolled state
+const Navbar = () => {
+  // const scrolled = useScrollTop();
+  const { isAuthenticated, isLoading } = useConvexAuth();
   return (
     <div
       className={cn(
-        "z-50 bg-background dark:bg-[#252525] fixed top-0 flex items-center w-full p-6", // Initial classes for styling
-        scrolled && "border-b shadow-sm",
+        "z-50 bg-background dark:bg-[#1f1f1f] fixed top-0 flex items-center w-full p-6",
+        // scrolled && "border-b shadow-sm"
       )}
     >
       <Logo />
       <div
-        //here is the combintation of the class for the navbar
         className="md:ml-auto md:justify-end justify-betweenw-full flex 
         items-center gap-x-2"
-      ></div>
-      <ModeToggle />
+      >
+        <ModeToggle />
+        {/* {isLoading && <Spinner />} */}
+        {!isAuthenticated && !isLoading && (
+          <>
+            <SignInButton mode="modal">
+              <Button variant="ghost" size="sm">
+                Log In
+              </Button>
+            </SignInButton>
+            <SignInButton mode="modal">
+              <Button size="sm">Get Pilas Free</Button>
+            </SignInButton>
+          </>
+        )}
+        {isAuthenticated && !isLoading && (
+          <>
+            <Button variant="ghost" size="sm" asChild>
+              <Link href="/documents">Enter Pp</Link>
+            </Button>
+            <UserButton afterSignOutUrl="/" />
+          </>
+        )}
+      </div>
     </div>
   );
 };
+
 export default Navbar;
