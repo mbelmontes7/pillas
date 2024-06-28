@@ -4,8 +4,10 @@
 // Import necessary components and hooks
 import { Spinner } from "@/components/ui/spinner";
 import { useConvexAuth } from "convex/react";
+// import { Navigation } from "lucide-react";
 import { redirect } from "next/navigation";
 import React from "react";
+import { Navigation } from "./_components/navigation";
 
 // authenticated users can see the content inside the layout. If the user is not authenticated, the MainLayout redirects them to the home page or login page. This prevents unauthorized access to protected content
 const MainLayout = ({ children }: { children: React.ReactNode }) => {
@@ -29,8 +31,7 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
   // Render the layout including children components or elements
   return (
     <div className="h-full flex dark:bg-[#1f1f1f]">
-      {/* Optionally render the Navigation component */}
-      {/* <Navigation /> */}
+      <Navigation />
       <main className="flex-1 h-full overflow-y-auto">
         {/* Optionally render the SearchCommand component */}
         {/* <SearchCommand /> */}
