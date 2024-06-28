@@ -1,3 +1,4 @@
+// use client-side rendering when you need interactivity, fast page changes, real-time data, or user-specific content.
 "use client";
 // import { useScrollTop } from "@/app/hooks/use-scroll-top";
 import { cn } from "@/lib/utils";
