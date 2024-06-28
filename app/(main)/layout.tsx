@@ -1,19 +1,44 @@
-// keep in mind that  Import and render components within MainLayout for reusable layouts and organized code which now is making so much sense.
+// Indicate that this component should be used on the client side since this is a real-time app
 "use client";
+
+// Import necessary components and hooks
+import { Spinner } from "@/components/ui/spinner";
 import { useConvexAuth } from "convex/react";
-// Define the MainLayout component
-// The component accepts a prop called 'children'
-const MainLayout = ({
-  children,
-}: {
-  // Specify that 'children' can be any valid React node
-  children: React.ReactNode;
-}) => {
+import { redirect } from "next/navigation";
+import React from "react";
+
+// Define the MainLayout component which accepts a 'children' prop
+const MainLayout = ({ children }: { children: React.ReactNode }) => {
+  // Use the useConvexAuth hook to get authentication status and loading state
   const { isAuthenticated, isLoading } = useConvexAuth();
 
-  // Return a div that wraps around the children prop
-  return <div>{children}</div>;
+  // If the authentication state is loading, show a spinner
+  if (isLoading) {
+    return (
+      <div className="h-full flex items-center justify-center">
+        <Spinner size="lg" />
+      </div>
+    );
+  }
+
+  // If the user is not authenticated, redirect to the home page
+  if (!isAuthenticated) {
+    return redirect("/");
+  }
+
+  // Render the layout including children components or elements
+  return (
+    <div className="h-full flex dark:bg-[#1f1f1f]">
+      {/* Optionally render the Navigation component */}
+      {/* <Navigation /> */}
+      <main className="flex-1 h-full overflow-y-auto">
+        {/* Optionally render the SearchCommand component */}
+        {/* <SearchCommand /> */}
+        {/* Render the children passed to MainLayout */}
+        {children}
+      </main>
+    </div>
+  );
 };
 
-// Export the MainLayout component as the default export of this module
 export default MainLayout;
