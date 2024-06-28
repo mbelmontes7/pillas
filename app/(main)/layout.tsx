@@ -7,7 +7,7 @@ import { useConvexAuth } from "convex/react";
 import { redirect } from "next/navigation";
 import React from "react";
 
-// Define the MainLayout component which accepts a 'children' prop
+// authenticated users can see the content inside the layout. If the user is not authenticated, the MainLayout redirects them to the home page or login page. This prevents unauthorized access to protected content
 const MainLayout = ({ children }: { children: React.ReactNode }) => {
   // Use the useConvexAuth hook to get authentication status and loading state
   const { isAuthenticated, isLoading } = useConvexAuth();
@@ -21,7 +21,7 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
     );
   }
 
-  // If the user is not authenticated, redirect to the home page
+  // if (!isAuthenticated) checks if the user is not authenticated. Go back to the main page
   if (!isAuthenticated) {
     return redirect("/");
   }
