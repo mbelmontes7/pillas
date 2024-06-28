@@ -2,6 +2,7 @@
 
 import { useConvexAuth } from "convex/react";
 import { ArrowRight } from "lucide-react";
+//When you use the Link component from next/link, you don’t need to explicitly render anything
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Spinner } from "@/components/ui/spinner";
