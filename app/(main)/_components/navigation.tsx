@@ -13,8 +13,12 @@ export const Navigation = () => {
         <div className="mt-4">
           <p>Documents</p>
         </div>
-        {/* //Implemented hover effect to reveal additional sidebar content. */}
-        <div className="opacity-0 group-hover:opacity-100" />
+        {/* -Implemented hover effect to reveal additional sidebar content. 
+                    -Applies a transition effect to the element, making changes to properties (like opacity) smooth and animated over a short duration.
+                    -Changes the cursor to indicate that the element is resizable horizontally (east-west direction)
+                    -duration-300: Sets the transition to last 300 milliseconds.
+                */}
+        <div className="opacity-0 group-hover/sidebar:opacity-100 transition-opacity duration-300 ease-in-out cursor-ew-resize absolute h-full w-1 bg-primary/10 right-0 top-0" />
       </aside>
     </>
   );
