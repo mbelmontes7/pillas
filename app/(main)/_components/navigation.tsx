@@ -1,11 +1,26 @@
 "use client";
 
+import { ChevronsLeft } from "lucide-react";
+import React, { ElementRef, useEffect, useRef, useState } from "react";
+
 export const Navigation = () => {
+  const isResizingRef = useRef(false);
+  const sidebarRef = useRef<ElementRef<"aside">>(null);
+  const navbarRef = useRef<ElementRef<"div">>(null);
+  const [isResetting, setIsResetting] = useState(false);
+
   return (
     <>
       {/* //templte for the side bar  */}
       <aside className="group/sidebar h-full bg-slate-100 overflow-y-auto relative flex w-60 flex-col z-[9999]">
         {/* //action items */}
+        <div
+          role="button"
+          // Import chevronleft from the lucid library and it made this cute icon for my side bar added css to make it look nicer only when the user hovers and when you can see it
+          className="h-6 w-6 text-muted-foreground rounded-sm hover:bg-neutral-300 dark:hover:bg-neutral-600 absolute top-3 right-2 opacity-0 group-hover/sidebar:opacity-100 transition"
+        >
+          <ChevronsLeft h-6 w-6 />
+        </div>
         <div>
           <p>Action items</p>
         </div>
