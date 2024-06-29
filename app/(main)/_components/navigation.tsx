@@ -4,20 +4,34 @@ import { ChevronsLeft } from "lucide-react";
 import React, { ElementRef, useEffect, useRef, useState } from "react";
 //npm i usehooks-ts library from
 import { useMediaQuery } from "usehooks-ts";
+import { useParams, usePathname, useRouter } from "next/navigation";
+
+import { cn } from "@/lib/utils";
 
 export const Navigation = () => {
+  const pathname = usePathname();
   const isMobile = useMediaQuery("(max-width:768px)");
+
   //Added isResizingRef to track sidebar resizing state and navbar elements
   const isResizingRef = useRef(false);
   const sidebarRef = useRef<ElementRef<"aside">>(null);
   const navbarRef = useRef<ElementRef<"div">>(null);
-  const [isResetting, setIsResetting] = useState(isMobile);
+  //Logic to handle sidebar state when `isResetting` changes
+  const [isResetting, setIsResetting] = useState(false);
+  const [isCollapsed, setIsCollapsed] = useState(isMobile);
 
   return (
     <>
       {/* //templte for the side bar  */}
-      <aside className="group/sidebar h-full bg-slate-100 overflow-y-auto relative flex w-60 flex-col z-[9999]">
-        {/* //action items */}
+      <aside
+        ref={sidebarRef}
+        className={cn(
+          "group/sidebar h-full bg-slate-100 overflow-y-auto relative flex w-60 flex-col z-[9999]",
+          //adding conditional classes here to let the user know if you are in mobile then the sidebar does not show unless clicked and if you are on desktop you can see it
+          isResetting && "transition-all ease-in-out duration-300 ",
+          isMobile && "w-0",
+        )}
+      >
         <div
           role="button"
           // Import chevronleft from the lucid library and it made this cute icon for my side bar added css to make it look nicer only when the user hovers and when you can see it
