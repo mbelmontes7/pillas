@@ -2,12 +2,16 @@
 
 import { ChevronsLeft } from "lucide-react";
 import React, { ElementRef, useEffect, useRef, useState } from "react";
+//npm i usehooks-ts library from
+import { useMediaQuery } from "usehooks-ts";
 
 export const Navigation = () => {
+  const isMobile = useMediaQuery("(max-width:768px)");
+  //Added isResizingRef to track sidebar resizing state and navbar elements
   const isResizingRef = useRef(false);
   const sidebarRef = useRef<ElementRef<"aside">>(null);
   const navbarRef = useRef<ElementRef<"div">>(null);
-  const [isResetting, setIsResetting] = useState(false);
+  const [isResetting, setIsResetting] = useState(isMobile);
 
   return (
     <>
