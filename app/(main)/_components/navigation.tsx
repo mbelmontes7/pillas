@@ -60,8 +60,9 @@ export const Navigation = () => {
     if (sidebarRef.current && navbarRef.current) {
       setIsCollapsed(false);
       setIsResetting(true);
-
+      //if is mobile is 100 if not 240
       sidebarRef.current.style.width = isMobile ? "100%" : "240px";
+      //with navbar we work with the width and left meaning if mobile is 0 if not 100%
       navbarRef.current.style.setProperty(
         "wdith",
         isMobile ? "0" : "calc(100% - 240px)",
@@ -80,7 +81,7 @@ export const Navigation = () => {
       <aside
         ref={sidebarRef}
         className={cn(
-          "group/sidebar h-full bg-slate-100 overflow-y-auto relative flex w-60 flex-col z-[9999]",
+          "group/sidebar h-full bg-slate-200 overflow-y-auto relative flex w-60 flex-col z-[9999]",
           //adding conditional classes here to let the user know if you are in mobile then the sidebar does not show unless clicked and if you are on desktop you can see it
           isResetting && "transition-all ease-in-out duration-300 ",
           isMobile && "w-0",
@@ -91,7 +92,7 @@ export const Navigation = () => {
           role="button"
           // Import chevronleft from the lucid library and it made this cute icon for my side bar added css to make it look nicer only when the user hovers and when you can see it
           className={cn(
-            "h-6 w-6 text-muted-foreground rounded-sm hover:bg-neutral-300 dark:hover:bg-neutral-600 absolute top-3 right-2 opacity-0 group-hover/sidebar:opacity-100 transition",
+            "h-6 w-6 text-muted-foreground rounded-sm hover:bg-neutral-100 dark:hover:bg-neutral-200 absolute top-3 right-2 opacity-0 group-hover/sidebar:opacity-100 transition",
             isMobile && "opacity-100",
           )}
         >
@@ -111,7 +112,7 @@ export const Navigation = () => {
                 */}
         <div
           onMouseDown={handleMouseDown}
-          // onClick={resetWidth}
+          onClick={resetWidth}
           className="opacity-0 group-hover/sidebar:opacity-100 transition-opacity duration-300 ease-in-out cursor-ew-resize absolute h-full w-1 bg-primary/10 right-0 top-0"
         />
       </aside>
