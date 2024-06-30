@@ -35,10 +35,9 @@ export const Navigation = () => {
   const handleMouseMove = (event: MouseEvent) => {
     if (!isResizingRef.current) return;
     let newWidth = event.clientX;
-    //how much the user can rezise the sidebar and how wide it can go, so we add the values
+    // Perform resizing logic here
     if (newWidth < 240) newWidth = 240;
     if (newWidth > 480) newWidth = 480;
-    //
     if (sidebarRef.current && navbarRef.current) {
       sidebarRef.current.style.width = `${newWidth}px`;
       navbarRef.current.style.setProperty("left", `${newWidth}px`);
@@ -54,6 +53,25 @@ export const Navigation = () => {
     isResizingRef.current = false;
     document.removeEventListener("mousemove", handleMouseMove);
     document.removeEventListener("mouseup", handleMouseUp);
+  };
+  //The resetWidth function is crucial for managing the layout of a responsive sidebar and navbar when the user can just reset it without going back the origial px
+  const resetWidth = () => {
+    //	The sidebar automatically collapses/expands based on the screen size.
+    if (sidebarRef.current && navbarRef.current) {
+      setIsCollapsed(false);
+      setIsResetting(true);
+
+      sidebarRef.current.style.width = isMobile ? "100%" : "240px";
+      navbarRef.current.style.setProperty(
+        "wdith",
+        isMobile ? "0" : "calc(100% - 240px)",
+      );
+      navbarRef.current.style.setProperty("left", isMobile ? "100%" : "240px");
+    }
+
+    setTimeout(() => {
+      setIsResetting(false);
+    }, 300);
   };
 
   return (
