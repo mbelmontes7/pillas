@@ -110,7 +110,7 @@ export const Navigation = () => {
       <aside
         ref={sidebarRef}
         className={cn(
-          "group/sidebar h-full bg-slate-200 overflow-y-auto relative flex w-60 flex-col z-[9999]",
+          "group/sidebar h-full bg-emerald-100 overflow-y-auto relative flex w-60 flex-col z-[9999]",
           //adding conditional classes here to let the user know if you are in mobile then the sidebar does not show unless clicked and if you are on desktop you can see it
           isResetting && "transition-all ease-in-out duration-300 ",
           isMobile && "w-0",
@@ -122,17 +122,17 @@ export const Navigation = () => {
           role="button"
           // Import chevronleft from the lucid library and it made this cute icon for my side bar added css to make it look nicer only when the user hovers and when you can see it
           className={cn(
-            "h-6 w-6 text-muted-foreground rounded-sm hover:bg-neutral-100 dark:hover:bg-neutral-200 absolute top-3 right-2 opacity-0 group-hover/sidebar:opacity-100 transition",
+            "h-6 w-6 text-muted-foreground rounded-sm hover:bg-teal-300 dark:hover: bg-stone-300 absolute top-3 right-2 opacity-0 group-hover/sidebar:opacity-100 transition",
             isMobile && "opacity-100",
           )}
         >
-          <ChevronsLeft h-6 w-6 />
+          <ChevronsLeft className="h-6 w-6" />
         </div>
         <div>
           <p>Action items</p>
         </div>
         {/* //this is going to another sections */}
-        <div className="mt-4">
+        <div className="mt-4 ">
           <p>Documents</p>
         </div>
         {/* -Implemented hover effect to reveal additional sidebar content. 
@@ -155,7 +155,6 @@ export const Navigation = () => {
         )}
       >
         <nav className="bg-transparent px-3 py-2 w-full">
-          {" "}
           {isCollapsed && (
             //The MenuIcon component is used to render the menu icon when the sidebar is collapsed.
             <MenuIcon
