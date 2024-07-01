@@ -21,6 +21,21 @@ export const Navigation = () => {
   //The useState hook is used in this context to manage the state of the component dynamically based on different conditions.
   const [isCollapsed, setIsCollapsed] = useState(isMobile);
 
+  useEffect(() => {
+    if (isMobile) {
+      collapse();
+    } else {
+      resetWidth();
+    }
+  }, [isMobile]);
+  //The useEffect hook is used to handle the sidebar state when the user navigates to a different page.
+  useEffect(() => {
+    if (isMobile) {
+      collapse();
+    }
+  }, [isMobile, pathname]);
+
+  //The handleMouseDown function is used to handle the mouse down event when the user clicks on the sidebar to resize it.
   const handleMouseDown = (
     event: React.MouseEvent<HTMLDivElement, MouseEvent>,
   ) => {
@@ -74,7 +89,21 @@ export const Navigation = () => {
       setIsResetting(false);
     }, 300);
   };
+  //The collapse function is used to collapse the sidebar when the user is on a mobile device.
+  const collapse = () => {
+    if (sidebarRef.current && navbarRef.current) {
+      setIsResetting(true);
+      setIsCollapsed(true);
 
+      sidebarRef.current.style.width = "0";
+      navbarRef.current.style.setProperty("width", "100%");
+      navbarRef.current.style.setProperty("left", "0");
+
+      setTimeout(() => {
+        setIsResetting(false);
+      }, 300);
+    }
+  };
   return (
     <>
       {/* //templte for the side bar  */}
@@ -88,6 +117,7 @@ export const Navigation = () => {
         )}
       >
         <div
+          onClick={collapse}
           //button for the side bar for the mobile here
           role="button"
           // Import chevronleft from the lucid library and it made this cute icon for my side bar added css to make it look nicer only when the user hovers and when you can see it
@@ -127,7 +157,12 @@ export const Navigation = () => {
         <nav className="bg-transparent px-3 py-2 w-full">
           {" "}
           {isCollapsed && (
-            <MenuIcon role="button" className="h-6 w-6 text-muted-foreground" />
+            //The MenuIcon component is used to render the menu icon when the sidebar is collapsed.
+            <MenuIcon
+              onClick={resetWidth}
+              role="button"
+              className="h-6 w-6 text-muted-foreground"
+            />
           )}
         </nav>
       </div>
